@@ -1,0 +1,50 @@
+digraph {
+  "exe:./core/gen/dune:0" [label="gen_traversal",shape=diamond]
+  "exe:./melstd/gen/dune:0" [label="build_reserved",shape=diamond]
+  "exe:./runtime/gen/dune:0" [label="gen_caml_oo_curry",shape=diamond]
+  "exe:./runtime/gen/dune:1" [label="gen_curry",shape=diamond]
+  "lib:cmdliner" [label="cmdliner",style=filled]
+  "lib:dune-build-info" [label="dune-build-info",style=filled]
+  "lib:js_parser" [label="js_parser",style=filled]
+  "lib:melange" [label="melange"]
+  "lib:melange.belt" [label="melange.belt"]
+  "lib:melange.dom" [label="melange.dom"]
+  "lib:melange.js" [label="melange.js"]
+  "lib:melange.js_parser" [label="melange.js_parser"]
+  "lib:melange.node" [label="melange.node"]
+  "lib:melange_compiler_libs" [label="melange_compiler_libs",style=filled]
+  "lib:melange_ffi" [label="melange_ffi"]
+  "lib:melange_mini_stdlib" [label="melange_mini_stdlib"]
+  "lib:melange_runtime_es6_tests" [label="melange_runtime_es6_tests"]
+  "lib:melange_runtime_tests" [label="melange_runtime_tests"]
+  "lib:melangelib" [label="melangelib"]
+  "lib:melstd" [label="melstd"]
+  "lib:pp" [label="pp",style=filled]
+  "lib:ppxlib.ast" [label="ppxlib.ast",style=filled]
+  "lib:test_runner" [label="test_runner"]
+  "lib:unix" [label="unix",style=filled]
+  "exe:./core/gen/dune:0" -> "lib:ppxlib.ast"
+  "exe:./core/gen/dune:0" -> "lib:cmdliner"
+  "exe:./melstd/gen/dune:0" -> "lib:ppxlib.ast"
+  "lib:melange" -> "lib:melange.js"
+  "lib:melange.belt" -> "lib:melange"
+  "lib:melange.js" -> "lib:melange_mini_stdlib"
+  "lib:melange.node" -> "lib:melange.js"
+  "lib:melange_ffi" -> "lib:melstd"
+  "lib:melange_ffi" -> "lib:melange_compiler_libs"
+  "lib:melange_ffi" -> "lib:js_parser"
+  "lib:melange_runtime_es6_tests" -> "lib:test_runner"
+  "lib:melange_runtime_tests" -> "lib:test_runner"
+  "lib:melange_runtime_tests" -> "lib:melange.dom"
+  "lib:melange_runtime_tests" -> "lib:melange.belt"
+  "lib:melangelib" -> "lib:melstd"
+  "lib:melangelib" -> "lib:melange_compiler_libs"
+  "lib:melangelib" -> "lib:melange_ffi"
+  "lib:melangelib" -> "lib:ppxlib.ast"
+  "lib:melangelib" -> "lib:dune-build-info"
+  "lib:melstd" -> "lib:unix"
+  "lib:melstd" -> "lib:melange_compiler_libs"
+  "lib:melstd" -> "lib:pp"
+  "lib:test_runner" -> "lib:melange"
+  "lib:test_runner" -> "lib:melange.node"
+}
